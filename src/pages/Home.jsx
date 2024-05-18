@@ -7,19 +7,23 @@ import PokeCard from "../components/PokeCard"
 import axios from "axios";
 
 export const Home = () => {
+    
     useEffect(() => {
-    axios.get("https://pokeapi.co/api/v2/pokemon?limit=30&offset=0")
-    .then((res) => console.log(res));
+
+    var endpoints = [];
+    for(var i = 1; i< 30; i++){
+        endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
+    }
+    axios.all(endpoints.map((endpoint) => axios.get(endpoint))).then((res) => setPokemons(res));
     });
     const [pokemons, setPokemons] = useState([]);
     return (
         <div><Navibar/>
         <Container maxWidth ="lg">
-            
         <Grid container>
         {pokemons.map((pokemon) => 
-        (<Grid item xs={3}>
-        <PokeCard/>
+        (<Grid item key={pokemon.name}>
+        <PokeCard name={pokemon.data.name} image={pokemon.data.sprites.front_default}/>
         </Grid> ))}
         
         </Grid>
