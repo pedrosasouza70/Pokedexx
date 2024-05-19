@@ -56,21 +56,23 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function SearchAppBar() {
   return (
     <Box sx={{ flexGrow: 1, marginBottom:"1.5em" }}>
-      <AppBar position="static" sx={{ backgroundColor: 'red'}} >
-        <Toolbar>
-          
+      <AppBar position="static" sx={{ backgroundColor: '#F94242'}} >
+        <Toolbar sx ={{display: 'grid', gridTemplateColumns :'1fr auto 1fr'
+        }}>
+       
+
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }} >
+            sx={{display: { xs: 'none', sm: 'block'} }} >
              <Box component = "img"
-            sx = {{height: 50, width: "auto"}}
+            sx = {{height: { xs: 40, sm: 50}, width: "auto"}}
             alt = "logo pokemon"
             src = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/640px-International_Pok%C3%A9mon_logo.svg.png"
             />
           </Typography>
-          <Search>
+          <Search >
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -79,6 +81,8 @@ export default function SearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
+
+         
         </Toolbar>
       </AppBar>
     </Box>

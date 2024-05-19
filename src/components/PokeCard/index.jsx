@@ -7,76 +7,85 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 
-export default function ImgMediaCard({ name, image, type,number }) {
+export default function ImgMediaCard({ name, image, type, number }) {
   const formNumber = (number) => {
     return number.toString().padStart(4, "0");
   };
   const pokeType = () => {
-    
-  
     if (type[1]) {
-     return <Button variant="contained" style={{ backgroundColor: 
-     getTypeColor(type[1].type.name), 
-     borderRadius: '5px',
-     fontSize:'0.75rem',
-     padding: '2px',
-     marginLeft: '5px'
-     }}>
-      {type[1].type.name}
-      </Button>
+      return (
+        <Button
+          variant="contained"
+          style={{
+            backgroundColor: getTypeColor(type[1].type.name),
+            borderRadius: "5px",
+            fontSize: "0.75rem",
+            padding: "2px",
+            marginLeft: "5px",
+          }}
+        >
+          {type[1].type.name}
+        </Button>
+      );
     }
   };
   const getTypeColor = (type) => {
     switch (type) {
       case "grass":
-        return "green" ; 
+        return "green";
       case "fire":
-        return "orange"; 
+        return "orange";
       case "poison":
         return "purple";
       case "water":
         return "blue";
       case "bug":
-        return "green" ; 
+        return "green";
       default:
-        return "#000"; 
+        return "#000";
     }
-  }
+  };
   return (
-    <Card sx={{ maxWidth: 345, margin: 1 }}>
+    <Card sx={{ maxWidth: "100%", margin: 1 }}>
       <CardMedia
         component="img"
         alt="green iguana"
         height="140"
         image={image}
-        sx = {{backgroundColor: "#F5F3F3", height:"auto"}}
+        sx={{ backgroundColor: "#F5F3F3", height: "auto" }}
       />
       <CardContent>
         <Typography
           gutterBottom
           variant="h5"
           component="div"
-          sx={{ textAlign: "left" }}>
-        {name}
-        <Typography variant="body2" color="#A49F9F" sx={{ textAlign: "left" }}>
-          <b>Nº{formNumber(number)}</b>
+          sx={{ textAlign: "left" }}
+        >
+          {name}
+          <Typography
+            variant="body2"
+            color="#A49F9F"
+            sx={{ textAlign: "left" }}
+          >
+            <b>Nº{formNumber(number)}</b>
+          </Typography>
         </Typography>
-        </Typography>
-        <Typography variant="body2" color="black" >
-        <Button variant="contained" style={{ backgroundColor: 
-     getTypeColor(type[0].type.name), 
-     borderRadius: '5px',
-     fontSize:'0.75rem',
-     padding: '2px'}}>        
-     {type[0].type.name}
-     </Button>
-     {pokeType()}
-          
+        <Typography variant="body2" color="black">
+          <Button
+            variant="contained"
+            style={{
+              backgroundColor: getTypeColor(type[0].type.name),
+              borderRadius: "5px",
+              fontSize: "0.75rem",
+              padding: "2px",
+            }}
+          >
+            {type[0].type.name}
+          </Button>
+          {pokeType()}
         </Typography>
       </CardContent>
-      <CardActions >
-        
-      </CardActions>
+      <CardActions></CardActions>
     </Card>
   );
 }
