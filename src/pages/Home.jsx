@@ -22,8 +22,8 @@ export const Home = () => {
         <Container maxWidth ="lg">
         <Grid container>
         {pokemons.map((pokemon) => 
-        (<Grid item key={pokemon.name}>
-        <PokeCard name={pokemon.data.name} image={pokemon.data.sprites.front_default}/>
+        (<Grid item xs = {2}key={pokemon.name}>
+        <PokeCard name={pokemon.data.name} image={pokemon.data.sprites.front_default} type={pokemon.data.types}/>
         </Grid> ))}
         
         </Grid>
