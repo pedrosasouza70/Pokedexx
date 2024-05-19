@@ -22,7 +22,7 @@ const Search = styled('div')(({ theme }) => ({
   width: '100%',
   [theme.breakpoints.up('sm')]: {
     marginLeft: theme.spacing(1),
-    width: 'auto',
+    width: '300px',
   },
 }));
 
@@ -59,9 +59,9 @@ export default function SearchAppBar() {
       <AppBar position="static" sx={{ backgroundColor: '#F94242'}} >
         <Toolbar sx ={{display: 'grid', gridTemplateColumns :'1fr auto 1fr'
         }}>
-       
+       <div/>
 
-          <Typography
+          <Typography 
             variant="h6"
             noWrap
             component="div"
@@ -72,6 +72,7 @@ export default function SearchAppBar() {
             src = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/640px-International_Pok%C3%A9mon_logo.svg.png"
             />
           </Typography>
+          <Box sx = {{marginLeft: 'auto'}}>
           <Search >
             <SearchIconWrapper>
               <SearchIcon />
@@ -81,6 +82,7 @@ export default function SearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
+          </Box>
 
          
         </Toolbar>
