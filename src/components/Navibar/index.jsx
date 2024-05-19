@@ -58,22 +58,17 @@ export default function SearchAppBar() {
     <Box sx={{ flexGrow: 1, marginBottom:"1.5em" }}>
       <AppBar position="static" sx={{ backgroundColor: 'red'}} >
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
+          
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >
-            Pokédex
+            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }} >
+             <Box component = "img"
+            sx = {{height: 50, width: "auto"}}
+            alt = "logo pokemon"
+            src = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/640px-International_Pok%C3%A9mon_logo.svg.png"
+            />
           </Typography>
           <Search>
             <SearchIconWrapper>
